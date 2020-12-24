@@ -1,0 +1,1039 @@
+<div>
+<!-------------------Attributes Table_____________________________-->
+    <table style = "float: left;">
+        <thead>
+            <td  colspan = "2">
+                Attributes
+            </td>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input value = 0 type="number" name="attr_Physicality" /></td>
+                <td>Physicality</td>
+            </tr>
+            <tr>
+                <td><input value = 0 type="number" name="attr_Endurance" /></td>
+                <td>Endurance</td>
+            </tr>
+            <tr>
+                <td><input value = 0 type="number" name="attr_Finesse" /></td>
+                <td>Finesse</td>
+            </tr>
+            <tr>
+                <td><input value = 0 type="number" name="attr_Intellect" /></td>
+                <td>Intellect</td>
+            </tr>
+            <tr>
+                <td><input value = 0 type="number" name="attr_Awareness" /></td>
+                <td>Awareness</td>
+            </tr>
+            <tr>    
+                <td><input value = 0 type="number" name="attr_Will" /></td>
+                <td>Will</td>
+            </tr>
+            <tr>    
+                <td><input value = 0 type="number" name="attr_Resolve" /></td>
+                <td>Resolve</td>
+                
+            </tr>
+        </tbody>
+    </table>
+<!--Character Info Table*****************************************-->
+    <table border = "0">
+        <tbody>
+            <tr>
+                <td><input class = "introInfo" type = "text" name = "attr_CharacterName" /></td>
+                <td><input class = "introInfo" type = "text" name = "attr_PlayerName" /></td>
+                <td><input class = "introInfo" type = "text" name = "attr_Game" /></td>
+                <td><select class = "introNumber" name = "attr_Tier">
+                    <option value = 1>Alpha</option>
+                    <option value = 2>Beta</option>
+                    <option value = 3>Gamma</option>
+                    <option value = 4>Delta</option>
+                    <option value = 5>Epsilon</option>
+                    <option value = 6>Omega</option>
+                </select>
+                <td><input class = "introNumber" type="number" name="attr_HardPoints" /></td>
+            </tr>
+            <tr class = "label">
+                <td class="label"> Character Name</td>
+                <td class="label"> Player Name</td>
+                <td class="label"> Game</td>
+                <td class="label"> Tier</td>
+                <td class="label"> Hard Points</td>
+            </tr>
+            <tr>
+                <td>
+                    <select class = "introInfo" name = "attr_Species">
+                        <option value = "DwellerShallow"> Shallow Dweller</option>
+                        <option value = "DwellerDeep"> Deep Dweller</option>
+                    </select>
+                </td>
+                <td>
+                    <select class = "introInfo" name = "attr_Domain">
+                        <option value = "TechMajorImplants"> Tech: Major Implants</option>
+                        <option value = "QuantumSect"> Quantum Sect</option>
+                    </select>
+                </td>
+                <td>
+                    <select class = "introInfo" name = "attr_Archetype">
+                        <option value = "DwellerShallow"> Shallow Dweller</option>
+                        <option value = "DwellerDeep"> Deep Dweller</option>
+                    </select>
+                </td>
+    
+                    <td><input class = "introNumber"  type="number" name="attr_APTotal" /></td>
+                <td> <input class = "introNumber"  type="number" name="attr_APSpent" /></td>
+            </tr>
+            <tr class = "label">
+                <td>Species</td>
+                <td>Domain</td>
+                <td>Archetype</td>
+                <td>AP</td>
+                <td>Spent</td>
+            </tr>
+            <tr>
+                <td><input class = "introInfo" type = "text" name = "attr_Vision" /></td>
+                <td><input class = "introInfo" type = "text" name = "attr_Languages" /></td>
+                <td><input class = "introInfo" type = "text" name = "attr_Homeworld" /></td>
+                <td> <input class = "introNumber"  type="number" name="attr_Speed" /></td>
+                <td><input class = "introNumber"  type="number" name="attr_Initiative" 
+                    value = "(@{BonusInitiative}+@{Physicality}+@{Finesse}+@{Awareness}+@{Tier})" disabled = "true"/></td>
+            </tr>
+            <tr class = "label">
+                <td>Vision</td>
+                <td>Language</td>
+                <td>Homeworld/Nation</td>
+                <td>Speed</td>
+                <td>Initiative</td>
+            </tr>
+   
+        </tbody>
+    </table>
+<!--Defense and HealthTable-->
+    <table>
+        <tr>
+            <td><input class = "introNumber" type="number" name="attr_Defense" value="(@{ArmorDefense}+@{IntFinDefense}+@{ShieldDefense}*@{ShieldOn}+@{BonusDefense})" disabled="true" /></td>
+            <td><input class = "introNumber" type="number" name="attr_Stamina" value="(@{Endurance}+(@{Physicality}+@{Finesse})+@{BonusStamina}+5)" disabled="true"/></td>
+            <td><input class = "introNumber" type="number" name="attr_Discipline" value="(@{Will}+@{Awareness}+@{Intellect}+@{BonusDiscipline}+5)" disabled="true"/>&nbsp;&nbsp;&nbsp;</td>
+            <td><input class = "introNumber" type="number" name="attr_Health" value = "0"/></td>
+            <td><input class = "introNumber" type="number" name="attr_HealthInArmor" value ="(@{Health}+ @{ArmorType}*@{Tier})" disabled="true"/></td>
+            <td><input class = "introNumber" type="number" name="attr_Damage" value = 0 /></td>
+            <td><input class = "introNumber" type="number" name="attr_TotalHealth" value = "(@{HealthInArmor}-@{Damage})" disabled="true"/></td>
+            <td><input class = "introNumber" type="number" name="attr_TenPercent" value = "(@{HealthInArmor}/10)" disabled="true"/>&nbsp;&nbsp;&nbsp;</td>
+            <td><input class = "introNumber" type="number" name="attr_DamageReduction" value = "(@{Plating}+@{Shielding})"   disabled = "true"/></td>
+            <td><input class = "introNumber" type="number" name="attr_Plating" value = "(@{ArmorPlating}+@{BonusPlating})" disabled = "true"/></td>
+            <td><input class = "introNumber" type="number" name="attr_Shielding" value = "((@{ShieldsShielding}*@{ShieldOn})+@{BonusShielding})" disabled = "true" /></td>
+            <td><input class = "introNumber" type="number" name="attr_DamageTolerance" /></td>
+<!--<td><input type="number" name="attr_EducationTotal" value="(@{Intellect}+(@{EducationTrained}*@{Tier})+@{EducationBonus})" disabled="true" /></td>-->
+
+        </tr>
+        <tr class = "label">
+            <td>Defense</td>
+            <td>Stamina</td>
+            <td>Discipline</td>
+            <td>Health</td>
+            <td>In Armor</td>
+            <td>Damage</td>
+            <td>Health Left</td>
+            <td>10% Health</td>
+            <td>Damage<br>Reduction</td>
+            <td>Plating</td>
+            <td>Shielding</td>
+            <td>Damage <br> Tolerance</td>
+        </tr>
+    </table>
+    
+</div>
+<br>
+<input type="radio" name="attr_tab" class="tab sheet-tab1" value="1" checked="checked"><span title = "First Tab">Actions</span><!-- Actions-->
+<input type="radio" name="attr_tab" class="tab sheet-tab2" value="2"><span title = "Second Tab">Weapons</span><!--Weapons -->
+<input type="radio" name="attr_tab" class="tab sheet-tab3" value="3"><span title = "Third Tab">Defense</span><!--Defense -->
+<input type="radio" name="attr_tab" class="tab sheet-tab4" value="4"><span title = "Fourth Tab">Backgrounds</span><!--Backgrounds -->
+<input type="radio" name="attr_tab" class="tab sheet-tab5" value="5"><span title = "Fifth Tab">Skills</span><!--Skills -->
+<input type="radio" name="attr_tab" class="tab sheet-tab6" value="6"><span title = "Sixth Tab">Rituals</span><!--Rituals -->
+<input type="radio" name="attr_tab" class="tab sheet-tab7" value="7"><span title = "Seventh Tab">History</span><!--History -->
+<div class = "sheet-actions">
+    <h2>Actions</h2>
+</div>
+<div class = "sheet-weapons">
+
+    <div class = 'grid-container'>
+        <div class = "ColWeapon">
+            <table>
+                <tr>
+                    <td>Weapons and Attacks</td>
+                    <td><input type="number" class = "weaponInfo" value = 0 name = "attr_BonusInitiative"></td>
+                    <td>
+                        <select class = "weaponInfo" name = "attr_AdvantageBonus">
+                            <option value = 0> None</option>
+                            <option value = 2> Advantage</option>
+                            <option value = 5> Greater Advantage</option>
+                            <option value = -2> Disadvantage</option>
+                            <option value = -5> Greater Disadvantage</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select class = "weaponInfo" name = "attr_StrategicAdvantageBonus">
+                            <option value = 0> None</option>
+                            <option value = 1> +1</option>
+                            <option value = 2> +2</option>
+                            <option value = 3> +3</option>
+                            <option value = 4> +4</option>
+                            <option value = 5> +5</option>
+                            <option value = 6> +6</option>
+                            <option value = 7> +7</option>
+                            <option value = 8> +8</option>
+                            <option value = 9> +9</option>
+                            <option value = 10> +10</option>
+                            <option value = -1> -1</option>
+                            <option value = -2> -2</option>
+                            <option value = -3> -3</option>
+                            <option value = -4> -4</option>
+                            <option value = -5> -5</option>
+                            <option value = -6> -6</option>
+                            <option value = -7> -7</option>
+                            <option value = -8> -8</option>
+                            <option value = -9> -9</option>
+                            <option value = -10> -10</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr class="label">
+                    <td></td>
+                    <td>Initiative Bonus</td>
+                    <td>Advantage</td>
+                    <td>Strat. Adv.</td>
+                    <td>Condition </td>
+                </tr>
+        
+            </table>
+            <fieldset class="repeating_weapons">
+                <!--Hidden Weapon Variables-->
+                <input type = "hidden" value = "2d6" name = "attr_WeaponDamageDiceRolled">
+                <input type = "hidden" value = 0 name = "attr_AttackAttributeBonus">
+                <table>
+                    <tr>
+                        <td colspan = "2">Weapon</td>
+                    </tr>
+                    <tr><td>Weapon</td>
+                        <td><input type="text" class = "weaponInfo" name = "attr_WeaponName"></td>
+                        <td>
+                            <select class = "weaponInfo" name = "attr_WeaponType">
+                                <option value = "CQC"> CQC</option>
+                                <option value = "Range"> Range</option>
+                                <option value = "Beam"> Beam</option>
+                            </select>
+                        </td>
+                        <td><input type="number" class = "weaponInfo" value = 10 name = "attr_WeaponRange" step = "10"></td>
+                        <td><input type="number" class = "weaponInfo" value = 0 name = "attr_WeaponHardPointCost"></td>
+        
+                    </tr>
+                    <tr class = "label">
+                        <td></td>
+                        <td>Model</td>
+                        <td>Type</td>
+                        <td>Range</td>
+                        <td>Hard Point Cost</td>
+                    </tr>
+        
+                    <tr>
+                        <td>Attack</td>
+                        <td>
+                            <select class="weaponInfo" name="attr_TrainingBonus">
+                                <option value=0> none</option>
+                                <option value=1> +1</option>
+                                <option value=2> +2</option>
+                                <option value=3> +3</option>
+                                <option value=4> +4</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="weaponInfo" name="attr_AttackAttribute">
+                                <option value=0> Physicality</option>
+                                <option value=1> Finesse</option>
+                                <option value=2> Endurance</option>
+                                <option value=3> Intellect</option>
+                                <option value=4> Will</option>
+                                <option value=5> Awareness</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="weaponInfo" name="attr_OtherAttackBonus">
+                                <option value=0> none</option>
+                                <option value=1> +1</option>
+                                <option value=2> +2</option>
+                                <option value=3> +3</option>
+                                <option value=4> +4</option>
+                                <option value=5> +5</option>
+                                <option value=6> +6</option>
+                                <option value=7> +7</option>
+                            </select>
+                        </td>
+                        <td> <button type="roll" name="roll_WeaponAttack" value="&{template:default} {{name=@{CharacterName} attacks with a @{WeaponName} }} {{Attack=[[1d20 +@{AttackAttributeBonus}+@{TrainingBonus}+@{Tier}+@{OtherAttackBonus}+@{AdvantageBonus}+@{StrategicAdvantageBonus}+@{AAOAttackBonus}]]}} {{Damage=[[@{WeaponDamageDiceRolled}+@{DamageAttributeBonus}+@{BonusDamage}+@{AAODamageBonus}]] }} {{Effect=@{WeaponEffect} }} {{@{ActiveAttackOption} Effect=@{ActiveAttackOptionEffects} }}"></button></td>
+
+                    </tr>
+                    <tr class = "label">
+                        <td></td>
+                        <td>Training Bonus</td>
+                        <td>Attribute</td>
+                        <td>Other Bonuses</td>
+                        <td>Roll</td>
+                    </tr>
+                    <tr>
+                        <td>Damage</td>
+                        <td>
+                            <select class="weaponInfo" name="attr_WeaponDieAmount">
+                                <option value=0> none</option>
+                                <option value="1"> 1</option>
+                                <option value="2"> 2</option>
+                                <option value="3"> 3</option>
+                                <option value="4"> 4</option>
+                                <option value="5"> 5</option>
+                                <option value="6"> 6</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="weaponInfo" name="attr_WeaponDie">
+                                <option value=0>none </option>
+                                <option value="d4"> d4</option>
+                                <option value="d6"> d6</option>
+                                <option value="d8"> d8</option>
+                                <option value="d10"> d10</option>
+                                <option value="d12"> d12</option>
+                                <option value="d20"> d20</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="weaponInfo" name="attr_DamageAttributeBonus">
+                                <option value=0> 0 </option>
+                                <option value=1> +1</option>
+                                <option value=2> +2</option>
+                                <option value=3> +3</option>
+                                <option value=4> +4</option>
+                                <option value=5> +5</option>
+                                <option value=6> +6</option>
+                                <option value=7> +7</option>
+                            </select>
+                        </td>
+                        <td><input type="number" class="weaponInfo" name="attr_BonusDamage" value="0"></td>
+                        <input type="hidden" value="2d6" name="attr_WeaponDamageDiceRolled">
+                        
+                    </tr>
+                    <tr class = "label">
+                        <td></td>
+                        <td>Dice Amount</td>
+                        <td>Dice Type</td>
+                        <td>Attribute</td>
+                        <td>Other Bonuses</td>
+                    </tr>
+                    <tr>
+                        <td colspan="6">
+                            <textarea type="text" name="attr_WeaponEffect">none</textarea>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+        <div class="ColAttackOptions">
+            <input type="number" name="attr_AAOAttackBonus" value= "0"  disabled="true">
+            <input type="hidden" value="Murder Machine" name="attr_ActiveAttackOption">
+            <input type="number" name="attr_AAODamageBonus" value="0" disabled="true">
+            <input type="hidden" value="I murdered him Avy." name="attr_ActiveAttackOptionEffects">
+    <!--<td><input type="number" name="attr_AnalyzeTotal" value="(@{Awareness}+(@{AnalyzeTrained}*@{Tier})+@{AnalyzeBonus})" disabled="true" /></td>-->
+            <table>
+                <thead>
+                    <tr>
+                        <td colspan=4>Attack Options</td>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>None</td>
+                    <td><input type="number" class="weaponInfo" value=0 name="attr_NoAttackOptionAttackBonus" disabled="true"></td>
+                    <td><input type="number" class="weaponInfo" value=0 name="attr_NoAttackOptionDamageBonus" disabled="true"></td>
+                </tr>
+                <tr class="label">
+                    <td>Attack Option</td>
+                    <td>Attack Bonus</td>
+                    <td>Damage Bonus</td>
+                </tr>
+            </table>
+            <fieldset class="repeating_attackoptions">
+                <table>
+                    <tr>
+                        <td><input type="checkbox" name="attr_AttackOptionUsed"></td>
+                        <td><input type="text" class="weaponInfo" name="attr_AttackOptionName"></td>
+                        <td><input type="number" class="weaponInfo" value=0 name="attr_AttackOptionAttackBonus"></td>
+                        <td><input type="number" class="weaponInfo" value=0 name="attr_AttackOptionDamageBonus"></td>
+
+                    </tr>
+                    <tr class="label">
+                        <td>use</td>
+                        <td>Attack Option</td>
+                        <td>Attack Bonus</td>
+                        <td>Damage Bonus</td>
+                    </tr>
+                    <tr>
+                        <td colspan=3>
+                            <textarea type="text" name="attr_AttackOptionEffects"></textarea>
+                        </td>
+                    </tr>
+                    <tr class='label'>
+                        <td></td>
+                        <td>Effects</td>
+                    </tr>
+                </table>
+            </fieldset>
+
+        </div>
+    </div>
+    
+
+</div>
+<div class = "sheet-defense">
+    <h2>Defenses</h2>
+    <table>
+            <tr><td>Armor</td>
+                <td><input type="text" class = "weaponInfo" name = "attr_ArmorName"></td>
+                <td>
+                    <select class = "weaponInfo" name = "attr_ArmorType">
+                        <option value = 0> Simple</option>
+                        <option value = 3> Light</option>
+                        <option value = 5> Heavy</option>
+                        <option value = 10> Seige</option>
+                    </select>
+                </td>
+                <td><input type="number" class = "weaponInfo" value = 0 name = "attr_ArmorPlating"></td>
+                <td>
+                    <select class = "weaponInfo" name = "attr_PlatingType">
+                        <option value = "Infantry"> Infantry</option>
+                        <option value = "Vehcile"> Vehicle</option>
+                        <option value = "Hardened"> Hardened</option>
+                        <option value = "Untyped"> Untyped</option>
+                    </select>
+                </td>
+                <td><input type="number" class = "weaponInfo" value = 0 name = "attr_ArmorDefense"></td>
+                <td><input type="number" class = "weaponInfo" value = 0 name = "attr_IntFinDefense"></td>
+                <td><input type="number" class = "weaponInfo" value = 0 name = "attr_HardPointsGiven"></td>
+                 <!--"(@{ArmorDefense}+(@{IntFinDefense}+@{ShieldDefense})*@{ShieldOn}+@{BonusDefense})"-->
+            </tr>
+            <tr class = "label">
+                <td></td>
+                <td>Model</td>
+                <td>Type</td>
+                <td>Plating</td>
+                <td>Plating Type</td>
+                <td>Defense</td>
+                <td>INT/FIN Bonus</td>
+                <td>Hard Points</td>
+            </tr>
+
+            <tr><td>Shield</td>
+                <td><input type="text" class = "weaponInfo" name = "attr_ShieldName"></td>
+                <td><input type="number" class = "weaponInfo" value = 0 name = "attr_ShieldsShielding"></td>
+                <td>
+                    <select class = "weaponInfo" name = "attr_ShieldType">
+                        <option value = "Light"> Light</option>
+                        <option value = "Heavy"> Heavy</option>
+                        <option value = "Seige"> Seige</option>
+                    </select>
+                </td>
+                <td><input type="number" class = "weaponInfo" value = 0 name = "attr_ShieldDefense"></td>
+                <td><input type="number" class = "weaponInfo" value = 0 name = "attr_ShieldHardPointsCost"></td>
+                <td><input type="checkbox" name="attr_ShieldOn" value="1" ></td>
+            </tr>
+            <tr class = "label">
+                <td></td>
+                <td>Model</td>
+                <td>Shielding</td>
+                <td>Shielding Type</td>
+                <td>Defense</td>
+                <td>Hard Points Cost</td>
+                <td>Equipped?</td>
+            </tr>
+
+            <tr>
+                <td>Bonuses</td>
+                <td><input type="number" class = "weaponInfo" value = 0 name = "attr_BonusDefense"></td>
+                <td><input type="number" class = "weaponInfo" value = 0 name = "attr_BonusShielding"></td>
+                <td><input type="number" class = "weaponInfo" value = 0 name = "attr_BonusPlating"></td>
+                <td><input type="number" class = "weaponInfo" value = 0 name = "attr_BonusStamina"></td>
+                <td><input type="number" class = "weaponInfo" value = 0 name = "attr_BonusDiscipline"></td>
+                <td><input type="number" class = "weaponInfo" value = 0 name = "attr_BonusHardPoints"></td>
+                <td><input type="number" class = "weaponInfo" value = 0 name = "attr_BonusDamageTolerance"></td>
+                <td><input type="number" class = "weaponInfo" value = 0 name = "attr_BonusRegeneration"></td>
+
+                          
+            </tr>              
+            <tr class = "label">
+                <td></td>
+                <td>Defense</td>
+                <td>Plating</td>
+                <td>Shielding</td>
+                <td>Stamina</td>
+                <td>Discipline</td>
+                <td>Hard Points</td>
+                <td>Damage Tolerance</td>
+                <td>Regeneration</td>
+            </tr>
+        </table>
+    
+</div>
+<div class = "sheet-backgrounds">
+    <fieldset class="repeating_Backgrounds">
+        <table>
+            <tr>
+            <td>Session</td>
+            <td></td>
+            <td>Background</td>
+            <td><input type="text" class = "weaponInfo" name = "attr_BackgroundName"></td>
+            <td>
+                <select class = "introNumber" name = "attr_BackgroundTier">
+                    <option value = 1>Alpha</option>
+                    <option value = 2>Beta</option>
+                    <option value = 3>Gamma</option>
+                    <option value = 4>Delta</option>
+                    <option value = 5>Epsilon</option>
+                    <option value = 6>Omega</option>
+                </select>                
+            </td>
+        </tr>
+            <tr>
+            <td colspan = 2>
+                <textarea type = "text" style = "width:300px" name = "attr_SessionDescription"></textarea>
+            </td>
+            <td colspan = 3>
+                <textarea type = "text" name = "attr_BackgroundDescription"></textarea>
+            </td>
+        </tr>
+        </table>            
+    </fieldset>
+
+</div>
+<div class = "sheet-skills">
+    <table>
+        <thead>
+            <tr>
+            <td>Skill</td>
+            <td>Trained</td>
+            <td>Attribute</td>
+            <td>Bonuses</td>
+            <td>Total</td>
+            <td>Roll</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="rowLabels">
+                <td class="objectName">Analyze</td>
+                <td><input type="checkbox" name="attr_AnalyzeTrained" value="2"></td>
+                <td><span name="attr_Awareness"></span> </td>
+                <td><input type="number" name="attr_AnalyzeBonus" value="0" /></td>
+                <td><input type="number" name="attr_AnalyzeTotal" value="(@{Awareness}+(@{AnalyzeTrained}*@{Tier})+@{AnalyzeBonus})" disabled="true" /></td>
+                <td> <button type="roll" name="roll_Analyze" value="&{template:default} {{name=@{CharacterName} Analyzes the situation }} {{Analyze Roll=[[1d20 +@{AnalyzeTotal}]]}} {{Effect=I understand everything...or not}}"></button></td>
+
+            </tr>
+            <tr class="rowLabels">
+                <td class="objectName">Notice</td>
+                <td><input type="checkbox" name="attr_NoticeTrained" value="2"></td>
+                <td><span name="attr_Awareness"></span> </td>
+                <td><input type="number" name="attr_NoticeBonus" value="0" /></td>
+                <td><input type="number" name="attr_NoticeTotal" value="(@{Awareness}+(@{NoticeTrained}*@{Tier})+@{NoticeBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="&{template:default} {{name=@{CharacterName} tries to Notice something }} {{Notice Roll=[[1d20 +@{NoticeTotal}}]]}} {{Effect=I see it...or not}}"></button></td>
+            </tr>
+            <tr class="rowLabels">
+                <td class="objectName">Self Awareness</td>
+                <td><input type="checkbox" name="attr_SelfAwarenessTrained" value="2"></td>
+                <td><span name="attr_Awareness"></span> </td>
+                <td><input type="number" name="attr_SelfAwarenessBonus" value="0" /></td>
+                <td><input type="number" name="attr_SelfAwarenessTotal" value="(@{Awareness}+(@{SelfAwarenessTrained}*@{Tier})+@{SelfAwarenessBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{SelfAwarenessTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Carrying</td>
+                <td><input type="checkbox" name="attr_CarryingTrained" value="2"></td>
+                <td><span name="attr_Endurance"></span> </td>
+                <td><input type="number" name="attr_CarryingBonus" value="0" /></td>
+                <td><input type="number" name="attr_CarryingTotal" value="(@{Endurance}+(@{CarryingTrained}*@{Tier})+@{CarryingBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{CarryingTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Enduring</td>
+                <td><input type="checkbox" name="attr_EnduringTrained" value="2"></td>
+                <td><span name="attr_Endurance"></span> </td>
+                <td><input type="number" name="attr_EnduringBonus" value="0" /></td>
+                <td><input type="number" name="attr_EnduringTotal" value="(@{Endurance}+(@{EnduringTrained}*@{Tier})+@{EnduringBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{EnduringTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Tolerance</td>
+                <td><input type="checkbox" name="attr_ToleranceTrained" value="2"></td>
+                <td><span name="attr_Endurance"></span> </td>
+                <td><input type="number" name="attr_ToleranceBonus" value="0" /></td>
+                <td><input type="number" name="attr_ToleranceTotal" value="(@{Endurance}+(@{ToleranceTrained}*@{Tier})+@{ToleranceBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{ToleranceTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Maneuver</td>
+                <td><input type="checkbox" name="attr_ManeuverTrained" value="2"></td>
+                <td><span name="attr_Finesse"></span> </td>
+                <td><input type="number" name="attr_ManeuverBonus" value="0" /></td>
+                <td><input type="number" name="attr_ManeuverTotal" value="(@{Finesse}+(@{ManeuverTrained}*@{Tier})+@{ManeuverBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{ManeuverTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Nimbleness</td>
+                <td><input type="checkbox" name="attr_NimblenessTrained" value="2"></td>
+                <td><span name="attr_Finesse"></span> </td>
+                <td><input type="number" name="attr_NimblenessBonus" value="0" /></td>
+                <td><input type="number" name="attr_NimblenessTotal" value="(@{Finesse}+(@{NimblenessTrained}*@{Tier})+@{NimblenessBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{NimblenessTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Stealth</td>
+                <td><input type="checkbox" name="attr_StealthTrained" value="2"></td>
+                <td><span name="attr_Finesse"></span> </td>
+                <td><input type="number" name="attr_StealthBonus" value="0" /></td>
+                <td><input type="number" name="attr_StealthTotal" value="(@{Finesse}+(@{StealthTrained}*@{Tier})+@{StealthBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{StealthTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Calculate</td>
+                <td><input type="checkbox" name="attr_CalculateTrained" value="2"></td>
+                <td><span name="attr_Intellect"></span> </td>
+                <td><input type="number" name="attr_CalculateBonus" value="0" /></td>
+                <td><input type="number" name="attr_CalculateTotal" value="(@{Intellect}+(@{CalculateTrained}*@{Tier})+@{CalculateBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{CalculateTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Create</td>
+                <td><input type="checkbox" name="attr_CreateTrained" value="2"></td>
+                <td><span name="attr_Intellect"></span> </td>
+                <td><input type="number" name="attr_CreateBonus" value="0" /></td>
+                <td><input type="number" name="attr_CreateTotal" value="(@{Intellect}+(@{CreateTrained}*@{Tier})+@{CreateBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{CreateTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Knowledge</td>
+                <td><input type="checkbox" name="attr_KnowledgeTrained" value="2"></td>
+                <td><span name="attr_Intellect"></span> </td>
+                <td><input type="number" name="attr_KnowledgeBonus" value="0" /></td>
+                <td><input type="number" name="attr_KnowledgeTotal" value="(@{Intellect}+(@{KnowledgeTrained}*@{Tier})+@{KnowledgeBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{KnowledgeTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Break</td>
+                <td><input type="checkbox" name="attr_BreakTrained" value="2"></td>
+                <td><span name="attr_Physicality"></span> </td>
+                <td><input type="number" name="attr_BreakBonus" value="0" /></td>
+                <td><input type="number" name="attr_BreakTotal" value="(@{Physicality}+(@{BreakTrained}*@{Tier})+@{BreakBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{BreakTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Manhandle</td>
+                <td><input type="checkbox" name="attr_ManhandleTrained" value="2"></td>
+                <td><span name="attr_Physicality"></span> </td>
+                <td><input type="number" name="attr_ManhandleBonus" value="0" /></td>
+                <td><input type="number" name="attr_ManhandleTotal" value="(@{Physicality}+(@{ManhandleTrained}*@{Tier})+@{ManhandleBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{ManhandleTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Rush</td>
+                <td><input type="checkbox" name="attr_RushTrained" value="2"></td>
+                <td><span name="attr_Physicality"></span> </td>
+                <td><input type="number" name="attr_RushBonus" value="0" /></td>
+                <td><input type="number" name="attr_RushTotal" value="(@{Physicality}+(@{RushTrained}*@{Tier})+@{RushBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{RushTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Convince</td>
+                <td><input type="checkbox" name="attr_ConvinceTrained" value="2"></td>
+                <td><span name="attr_Will"></span> </td>
+                <td><input type="number" name="attr_ConvinceBonus" value="0" /></td>
+                <td><input type="number" name="attr_ConvinceTotal" value="(@{Will}+(@{ConvinceTrained}*@{Tier})+@{ConvinceBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{ConvinceTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Focus</td>
+                <td><input type="checkbox" name="attr_FocusTrained" value="2"></td>
+                <td><span name="attr_Will"></span> </td>
+                <td><input type="number" name="attr_FocusBonus" value="0" /></td>
+                <td><input type="number" name="attr_FocusTotal" value="(@{Will}+(@{FocusTrained}*@{Tier})+@{FocusBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{FocusTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Presence</td>
+                <td><input type="checkbox" name="attr_PresenceTrained" value="2"></td>
+                <td><span name="attr_Will"></span> </td>
+                <td><input type="number" name="attr_PresenceBonus" value="0" /></td>
+                <td><input type="number" name="attr_PresenceTotal" value="(@{Will}+(@{PresenceTrained}*@{Tier})+@{PresenceBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{PresenceTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Martial: Battle Awareness</td>
+                <td><input type="checkbox" name="attr_BattleAwarenessTrained" value="2"></td>
+                <td><span name="attr_Awareness"></span> </td>
+                <td><input type="number" name="attr_BattleAwarenessBonus" value="0" /></td>
+                <td><input type="number" name="attr_BattleAwarenessTotal" value="(@{Awareness}+(@{BattleAwarenessTrained}*@{Tier})+@{BattleAwarenessBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{BattleAwarenessTotal}"></button></td>
+            </tr>
+            <tr class="rowLabels">
+                <td class="objectName">Martial: Combat</td>
+                <td><input type="checkbox" name="attr_CombatTrained" value="2"></td>
+                <td><span name="attr_Awareness"></span> </td>
+                <td><input type="number" name="attr_CombatBonus" value="0" /></td>
+                <td><input type="number" name="attr_CombatTotal" value="(@{Awareness}+(@{CombatTrained}*@{Tier})+@{CombatBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{CombatTotal}"></button></td>
+            </tr>
+            <tr class="rowLabels">
+                <td class="objectName">Martial: Theory of War</td>
+                <td><input type="checkbox" name="attr_TheoryOfWarTrained" value="2"></td>
+                <td><span name="attr_Awareness"></span> </td>
+                <td><input type="number" name="attr_TheoryOfWarBonus" value="0" /></td>
+                <td><input type="number" name="attr_TheoryOfWarTotal" value="(@{Awareness}+(@{TheoryOfWarTrained}*@{Tier})+@{TheoryOfWarBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{TheoryOfWarTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Quantum: Academic</td>
+                <td><input type="checkbox" name="attr_AcademicTrained" value="2"></td>
+                <td><span name="attr_Will"></span> </td>
+                <td><input type="number" name="attr_AcademicBonus" value="0" /></td>
+                <td><input type="number" name="attr_AcademicTotal" value="(@{Will}+(@{AcademicTrained}*@{Tier})+@{AcademicBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{AcademicTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Quantum: Applied</td>
+                <td><input type="checkbox" name="attr_AppliedTrained" value="2"></td>
+                <td><span name="attr_Will"></span> </td>
+                <td><input type="number" name="attr_AppliedBonus" value="0" /></td>
+                <td><input type="number" name="attr_AppliedTotal" value="(@{Will}+(@{AppliedTrained}*@{Tier})+@{AppliedBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{AppliedTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Quantum: Rift Channeling</td>
+                <td><input type="checkbox" name="attr_RiftChannelingTrained" value="2"></td>
+                <td><span name="attr_Will"></span> </td>
+                <td><input type="number" name="attr_RiftChannelingBonus" value="0" /></td>
+                <td><input type="number" name="attr_RiftChannelingTotal" value="(@{Will}+(@{RiftChannelingTrained}*@{Tier})+@{RiftChannelingBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{AnalyzeTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Old Ways: Combat Magic</td>
+                <td><input type="checkbox" name="attr_CombatMagicTrained" value="2"></td>
+                <td><span name="attr_Intellect"></span> </td>
+                <td><input type="number" name="attr_CombatMagicBonus" value="0" /></td>
+                <td><input type="number" name="attr_CombatMagicTotal" value="(@{Intellect}+(@{CombatMagicTrained}*@{Tier})+@{CombatMagicBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{CombatMagicTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Old Ways: Education</td>
+                <td><input type="checkbox" name="attr_EducationTrained" value="2"></td>
+                <td><span name="attr_Intellect"></span> </td>
+                <td><input type="number" name="attr_EducationBonus" value="0" /></td>
+                <td><input type="number" name="attr_EducationTotal" value="(@{Intellect}+(@{EducationTrained}*@{Tier})+@{EducationBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{EducationTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Old Ways: Ritual Casting</td>
+                <td><input type="checkbox" name="attr_RitualCastingTrained" value="2"></td>
+                <td><span name="attr_Awareness"></span> </td>
+                <td><input type="number" name="attr_RitualCastingBonus" value="0" /></td>
+                <td><input type="number" name="attr_RitualCastingTotal" value="(@{Intellect}+(@{RitualCastingTrained}*@{Tier})+@{RitualCastingBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{RitualCastingTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Tech: Applied Science</td>
+                <td><input type="checkbox" name="attr_AppliedScienceTrained" value="2"></td>
+                <td><span name="attr_Intellect"></span> </td>
+                <td><input type="number" name="attr_AppliedScienceBonus" value="0" /></td>
+                <td><input type="number" name="attr_AppliedScienceTotal" value="(@{Intellect}+(@{AppliedScienceTrained}*@{Tier})+@{AppliedScienceBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{AppliedScienceTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Tech: Technological Superiority</td>
+                <td><input type="checkbox" name="attr_TechnologicalSuperiorityTrained" value="2"></td>
+                <td><span name="attr_Intellect"></span> </td>
+                <td><input type="number" name="attr_TechnologicalSuperiorityBonus" value="0" /></td>
+                <td><input type="number" name="attr_TechnologicalSuperiorityTotal" value="(@{Intellect}+(@{TechnologicalSuperiorityTrained}*@{Tier})+@{TechnologicalSuperiorityBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{TechnologicalSuperiorityTotal}"></button></td>
+            </tr>
+
+            <tr class="rowLabels">
+                <td class="objectName">Tech: Theoretical Science</td>
+                <td><input type="checkbox" name="attr_TheoreticalScienceTrained" value="2"></td>
+                <td><span name="attr_Intellect"></span> </td>
+                <td><input type="number" name="attr_TheoreticalScienceBonus" value="0" /></td>
+                <td><input type="number" name="attr_TheoreticalScienceTotal" value="(@{Intellect}+(@{TheoreticalScienceTrained}*@{Tier})+@{TheoreticalScienceBonus})" disabled="true" /></td>
+                <td> roll<button type="roll" value="/roll 1d20 +@{TheoreticalScienceTotal}"></button></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<div class = "sheet-rituals">
+     <fieldset class="repeating_Rituals">
+    <table>
+    <tr>
+        <td>
+            Ritual<input type="text" name = "attr_RitualName">
+            Type
+            <select name = "attr_RitualType">
+                    <option value = 1>Old Ways</option>
+                    <option value = 2>Quantum Channeling</option>
+                </select>     
+        </td>
+    </tr> 
+    <tr>
+        <td>
+                <textarea type = "text" name = "attr_RitualDescription"></textarea>
+        </td>
+    </tr>
+    </table>
+
+    </fieldset>
+</div>
+<div class="sheet-history">
+    <div class="grid-container-history">
+        <div class="ColOrigin">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Origin</td>
+                    </tr>
+                </thead>
+                <tr>
+                    <td><textarea class="historyBox"  name="attr_EarlyLife"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Early Life: Where do you come from?</td>
+                </tr>
+                <tr>
+                    <td><textarea class="historyBox"  name="attr_Mentors"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Mentors: Who helped shape who you are?</td>
+                </tr>
+                <tr>
+                    <td><textarea class="historyBox"  name="attr_TriggeringEvent"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Triggering Event: What changed your life?</td>
+                </tr>
+                <tr>
+                    <td><textarea class="historyBox"  name="attr_Decision"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Decision: What did you decide to do?</td>
+                </tr>
+            </table>
+        </div>
+        <div class="ColQuarks">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Quarks</td>
+                    </tr>
+                </thead>
+                <tr>
+                    <td><textarea class="historyBox"  name="attr_SignatureAspect"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Signature Aspect(Move, Clothing, etc)</td>
+                </tr>
+                <tr>
+                    <td><textarea class="historyBox" name="attr_FavoriteGear"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Favorite Piece of Gear</td>
+                </tr>
+                <tr>
+                    <td><textarea class="historyBox"  name="attr_GreatestDream"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Greatest Dream</td>
+                </tr>
+                <tr>
+                    <td><textarea class="historyBox"  name="attr_DarkestFear"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Darkest Fear</td>
+                </tr>
+                <tr>
+                    <td><textarea class="historyBox"  name="attr_Mannerisms"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Mannerisms</td>
+                </tr>
+                <tr>
+                    <td><textarea class="historyBox"  name="attr_Triggers"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Triggers: What deeply annoys you?</td>
+                </tr>
+            </table>
+        </div>
+        <div class=" ColCharacteristics">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Characteristics</td>
+                    </tr>
+                </thead>
+                <tr>
+                    <td><textarea class="historyBox"  name="attr_Alliances"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Alliances</td>
+                </tr>
+                <tr>
+                    <td><textarea class="historyBox"  name="attr_Goals"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Goals</td>
+                </tr>
+                <tr>
+                    <td><textarea class="historyBox"  name="attr_Values"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Values</td>
+                </tr>
+                <tr>
+                    <td><textarea class="historyBox"  name="attr_Personality"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Personality</td>
+                </tr>
+                <tr>
+                    <td><textarea class="historyBox"  name="attr_Secrets"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Secrets</td>
+                </tr>
+                <tr>
+                    <td><textarea class="historyBox"  name="attr_Tendencies"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>Tendencies</td>
+                </tr>
+            </table>
+        </div>
+        <div class="ColNotes">
+            <table>
+                <thead>
+                    <tr>
+                        <td>Notes</td>
+                    </tr>
+                </thead>
+                <tr>
+                    <td><textarea class="historyBox historyNotes"  name="attr_Notes"></textarea></td>
+                </tr>
+                <tr class="label">
+                    <td>What else is important about your character?</td>
+                </tr>
+        </div>
+    </div>
+</div>
+<!-------------------------------------------------------------
+*************************Hidden Variables List***********************
+------------------------------------------------------------------->
+
+<!------------------------------------------------------------
+*******************JAVASCRIPT BEGINS HERE*********************
+--------------------------------------------------------------->
+<script type="text/worker">
+                ////////////Updating Repeated Blocks//////////////////////////////////
+                ////////////Updating Repeated Blocks//////////////////////////////////
+                    on("change:repeating_weapons:weapondieamount change:repeating_weapons:weapondie sheet:opened", function() {
+                    getAttrs(["repeating_weapons_weaponDieAmount","repeating_weapons_weaponDie"], function(values) {
+                        let quantity = String(values["repeating_weapons_weaponDieAmount"]);
+                        let dice = String(values["repeating_weapons_weaponDie"]);
+                        let rolly = quantity.concat(dice);
+                        console.log(rolly)
+
+                        setAttrs({
+                            "repeating_weapons_WeaponDamageDiceRolled": rolly
+                // str1.concat(str2);
+                        });
+                    });
+                });
+
+                    on("change:repeating_weapons:attackattribute sheet:opened", function() {
+                    getAttrs(["repeating_weapons_AttackAttribute","Physicality", "Finesse","Endurance","Intellect","Will","Awareness"], function(values) {
+                        let pick = parseInt(values["repeating_weapons_AttackAttribute"])||0
+                        let phy = parseInt(values["Physicality"])||0;
+                        let fin = parseInt(values["Finesse"])||0;
+                        let end = parseInt(values["Endurance"])||0;
+                        let int = parseInt(values["Intellect"])||0;
+                        let wil = parseInt(values["Will"])||0;
+                        let awa =parseInt( values["Awareness"])||0;
+                        let used = 50;
+
+                        if(pick == 0){
+                            used = phy;
+                        }else if(pick ==1){
+                            used = fin;
+                        }else if(pick ==2){
+                            used = end;
+                        }else if(pick ==3){
+                            used = int;
+                        }else if(pick ==4){
+                            used = wil;
+                        }else if(pick ==5){
+                            used = awa
+                        }
+
+                        setAttrs({
+                            "repeating_weapons_AttackAttributeBonus": used
+                        });
+                    });
+                });
+                //////////Attack Options////////////////////////////
+    const repeatingSum = (destinations, section, fields) => {
+        if (!Array.isArray(destinations)) destinations = [destinations.replace(/\s/g, '').split(',')];
+        if (!Array.isArray(fields)) fields = [fields.replace(/\s/g, '').split(',')];
+        getSectionIDs(`repeating_${section}`, idArray => {
+            const attrArray = idArray.reduce((m, id) => [...m, ...(fields.map(field => `repeating_${section}_${id}_${field}`))], []);
+            getAttrs([...attrArray], v => {
+                const getValue = (section, id, field) => v[`repeating_${section}_${id}_${field}`] === 'on' ? 1 : parseFloat(v[`repeating_${section}_${id}_${field}`]) || 0;
+                const commonMultipliers = (fields.length <= destinations.length) ? [] : fields.splice(destinations.length, fields.length - destinations.length);
+                const output = {};
+                destinations.forEach((destination, index) => {
+                    output[destination] = idArray.reduce((total, id) => total + getValue(section, id, fields[index]) * commonMultipliers.reduce((subtotal, mult) => subtotal * getValue(section, id, mult), 1), 0);
+                });
+                setAttrs(output);
+            });
+        });
+    };
+
+        on('change:repeating_attackoptions:attackoptionused sheet:opened', function () {
+            repeatingSum("AAOAttackBonus", "attackoptions", ["AttackOptionAttackBonus", "AttackOptionUsed"]);
+            repeatingSum("AAODamageBonus", "attackoptions", ["AttackOptionDamageBonus", "AttackOptionUsed"]);
+        });
+
+</script>
+
+
+

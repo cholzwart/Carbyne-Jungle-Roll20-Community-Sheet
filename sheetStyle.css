@@ -1,0 +1,110 @@
+/*@import url('https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap');*/
+
+.sheet-ColWeapon { grid-area: weapon; }
+.sheet-ColAttackOptions { grid-area: option; }
+
+.sheet-grid-container {
+    display: grid;
+    grid-template-areas:
+      'weapon weapon weapon option option';
+    grid-gap: 10px;
+    background-color: #001b31;
+    padding: 10px;
+  }
+
+.sheet-ColOrigin {
+    grid-area: origin;
+}
+.sheet-ColQuarks {
+    grid-area: quarks;
+}
+.sheet-ColCharacteristics {
+    grid-area: characteristics;
+}
+.sheet-ColNotes {
+    grid-area: notes;
+}
+.sheet-grid-container-history {
+    display: grid;
+    grid-template-areas: 'origin notes' 'characteristics quarks';
+    grid-gap: 1px;
+    background-color: #001b31;
+    padding: 1px;
+}
+textarea.sheet-historyBox {
+    width:375px;
+    height:60px;
+}
+
+textarea.sheet-historyNotes {
+    height:345px;
+}
+
+.sheet-label td{
+    font-size:8px;
+    text-align:center;
+    margin:0px;
+    padding:0px;
+}
+.sheet-introInfo{
+    width:150px;
+}
+.sheet-introNumber{
+    width:70px;
+}
+.sheet-weaponInfo{
+    width:80px;
+}
+input[type=number].sheet-weaponInfo{
+    width:80px;
+}
+
+div.sheet-weapons,
+div.sheet-actions,
+div.sheet-defense,
+div.sheet-backgrounds,
+div.sheet-skills,
+div.sheet-history,
+div.sheet-rituals { display: none; }
+input.sheet-tab1:checked ~ div.sheet-actions { display: block; }
+input.sheet-tab2:checked ~ div.sheet-weapons { display: block; }
+input.sheet-tab3:checked ~ div.sheet-defense { display: block; }
+input.sheet-tab4:checked ~ div.sheet-backgrounds { display: block; }
+input.sheet-tab5:checked ~ div.sheet-skills { display: block; }
+input.sheet-tab6:checked ~ div.sheet-rituals { display: block; }
+input.sheet-tab7:checked ~ div.sheet-history { display: block; }
+
+table{
+    background-color:black;
+    margin:10px;
+    padding:4px 4px 4px 4px;
+    border: 5px solid rgb(59, 59, 59);
+
+}
+thead td{
+    background-color:black;
+    color:white;
+    font-size:14px;
+    text-align:center;
+    text-transform:uppercase;
+    font-family: 'Teko', sans-serif;
+}
+
+select{
+    margin-top:8px;
+}
+input {
+    margin-bottom:0px;
+}
+table td{
+    color:white;
+    font-family:Arial;
+    font-weight:bold;
+    text-align:center;
+    background-color:black;
+}
+textarea{
+    height:80px;
+    resize: none;
+    overflow-y: scroll;
+}
